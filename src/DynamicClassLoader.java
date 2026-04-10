@@ -1,9 +1,11 @@
 import java.io.File;
+import java.lang.reflect.Modifier;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.util.*;
-import java.lang.reflect.Modifier;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * DynamicClassLoader is a utility class that loads classes from a specified directory.
@@ -49,6 +51,9 @@ public class DynamicClassLoader {
                     loadedClasses.add(clazz);
                 } catch (ClassNotFoundException e) {
                     System.err.println("Failed to load: " + className);
+                } catch (LinkageError e) {
+                    // Skip classes whose file path implies a different binary name (or otherwise cannot be linked).
+                    System.err.println("Skipping invalid class entry: " + className + " (" + e.getMessage() + ")");
                 }
             }
         }
