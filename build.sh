@@ -21,9 +21,34 @@ echo "Main-Class: ChampionsArena" > target/MANIFEST.MF
 echo "📦 Creating JAR file..."
 jar cfm champions-arena.jar target/MANIFEST.MF -C target .
 
+# Create specialized jars for training dummy champions and their related classes
+echo "📦 Creating training dummy plugin JARs..."
+jar cf trainingdummy.jar \
+	-C target TrainingDummy.class \
+	-C target TrainingDummy.png \
+	-C target Headbutt.class \
+	-C target Shrug.class \
+	-C target Bandaid.class \
+	-C target EmberCrystal.class \
+	-C target Chargebreaker.class \
+	-C target RecklessBurst.class
+
+jar cf advancedtrainingdummy.jar \
+	-C target AdvancedTrainingDummy.class \
+	-C target AdvancedTrainingDummy.png \
+	-C target Jab.class \
+	-C target Brace.class \
+	-C target WindUpSlam.class \
+	-C target PoisonDart.class \
+	-C target BraceBuff.class \
+	-C target PoisonEffect.class \
+	-C target StoneAmulet.class \
+	-C target LastLight.class \
+	-C target AdrenalSurge.class \
+
 # Creating javaDoc
 echo "📜 Generating JavaDoc..."
 javadoc -d docs src/*.java
 zip -r docs.zip docs
 
-echo "✅ Build complete: champions-arena.jar"
+echo "✅ Build complete: champions-arena.jar, trainingdummy.jar, advancedtrainingdummy.jar"
