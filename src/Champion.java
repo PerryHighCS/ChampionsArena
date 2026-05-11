@@ -177,7 +177,7 @@ public abstract class Champion {
     
     /**
      * Check if the Champion is alive.
-     * @return true if the Champion is alive (currentHealth > 0)
+    * @return true if the Champion is alive (currentHealth &gt; 0)
      */
     public final boolean isAlive() {
         return currentHealth > 0;

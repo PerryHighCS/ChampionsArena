@@ -1,7 +1,7 @@
-import java.util.List;
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 /**
  * A vault of battle modifiers that can be drawn randomly throughout the match.
@@ -112,7 +112,7 @@ public class ModifierVault {
     public BattleModifier drawRandomOfType(Class<? extends BattleModifier> type) {
         List<Class<? extends BattleModifier>> matches = registry.stream()
             .filter(c -> type.isAssignableFrom(c))
-            .toList();
+            .collect(Collectors.toList());
 
         if (matches.isEmpty()) return null;
         return instantiate(matches.get(random.nextInt(matches.size())));

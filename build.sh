@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 # Clean build output
 echo "🧹 Cleaning build output..."
 rm -rf target
