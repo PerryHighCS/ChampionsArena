@@ -25,17 +25,18 @@ jar cfm champions-arena.jar target/MANIFEST.MF -C target .
 echo "📦 Creating training dummy plugin JARs..."
 jar cf trainingdummy.jar \
 	-C target TrainingDummy.class \
-	-C target TrainingDummy.png \
+	-C src TrainingDummy.png \
 	-C target Headbutt.class \
 	-C target Shrug.class \
 	-C target Bandaid.class \
 	-C target EmberCrystal.class \
 	-C target Chargebreaker.class \
-	-C target RecklessBurst.class
+	-C target RecklessBurst.class \
+    -C target DefenseDrop.class
 
 jar cf advancedtrainingdummy.jar \
 	-C target AdvancedTrainingDummy.class \
-	-C target AdvancedTrainingDummy.png \
+	-C src AdvancedTrainingDummy.png \
 	-C target Jab.class \
 	-C target Brace.class \
 	-C target WindUpSlam.class \
